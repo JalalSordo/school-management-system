@@ -10,8 +10,6 @@ import com.everis.beans.Person;
 public class SchoolApplication {
 
 	public static void main(String[] args) {
-		Person p=new Person();
-	
 		SpringApplication.run(SchoolApplication.class, args);
 		
 	}
