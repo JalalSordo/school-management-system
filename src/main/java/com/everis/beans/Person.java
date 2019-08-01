@@ -17,6 +17,7 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 public class Person{
+	
 	@Id
     @GeneratedValue(strategy=GenerationType.AUTO)
 	Long id;
