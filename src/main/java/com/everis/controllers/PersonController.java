@@ -79,7 +79,10 @@ Person replacePerson(@RequestBody Person newPerson, @PathVariable Long id) {
     });
 }
 
-
+@DeleteMapping("/persons/{id}")
+void deletePerson(@PathVariable Long id) {
+	personService.getPersonById(id);
+}
 
 }
 
