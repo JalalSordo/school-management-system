@@ -27,5 +27,14 @@ public class Person{
 	String city;
 	String country;
 	protected Person() {}
+	public Person(String firstName, String lastName, Date dateOfBirth, String city, String country) {
+		super();
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.dateOfBirth = dateOfBirth;
+		this.city = city;
+		this.country = country;
+	}
+	
 	
 }
