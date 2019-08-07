@@ -55,29 +55,26 @@ Person newPerson(@RequestBody Person newPerson) {
 @GetMapping("/persons/{id}")
 Person one(@PathVariable Long id) {
 
-  return personService.getPersonById(id)
-    .orElseThrow(() -> new PersonNotFoundException(id));
+  return personService.getPersonById(id).orElseThrow(() -> new PersonNotFoundException(id));
+    
 }
-
 
 @PutMapping("/persons/{id}")
-Person replacePerson(@RequestBody Person newPerson, @PathVariable Long id) {
+Person updatePerson(@RequestBody Person newPerson, @PathVariable Long id) {
 
-  return personService.getPersonById(id)
-    .map(Person -> {
-      Person.setFirstName(newPerson.getFirstName());
-      Person.setLastName(newPerson.getLastName());
-      Person.setDateOfBirth(newPerson.getDateOfBirth());
-      Person.setCity(newPerson.getCity());
-      Person.setCountry(newPerson.getCountry());
-
-      return personService.savePerson(Person);
-    })
-    .orElseGet(() -> {
-      newPerson.setId(id);
-      return personService.savePerson(newPerson);
+    return personService.getPersonById(id).map(person -> {
+    	person.setFirstName(newPerson.getFirstName());
+    	person.setLastName(newPerson.getLastName());
+    	person.setDateOfBirth(newPerson.getDateOfBirth());
+    	person.setCity(newPerson.getCity());
+    	person.setCountry(newPerson.getCountry());
+        return personService.savePerson(person);
+    }).orElseGet(() -> {
+        newPerson.setId(id);
+        return personService.savePerson(newPerson);
     });
 }
+
 
 @DeleteMapping("/persons/{id}")
 void deletePerson(@PathVariable Long id) {

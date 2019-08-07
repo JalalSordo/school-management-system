@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.everis.beans.Person;
+import com.everis.exceptions.PersonNotFoundException;
 import com.everis.repository.PersonRepository;
 
 import lombok.Getter;

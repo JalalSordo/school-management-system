@@ -26,7 +26,7 @@ public class Person{
 	Date dateOfBirth;
 	String city;
 	String country;
-	protected Person() {}
+	public Person() {}
 	public Person(String firstName, String lastName, Date dateOfBirth, String city, String country) {
 		super();
 		this.firstName = firstName;
