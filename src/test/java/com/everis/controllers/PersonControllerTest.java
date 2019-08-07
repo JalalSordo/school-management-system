@@ -38,5 +38,22 @@ public class PersonControllerTest {
 		assertEquals(4l, per.getId().longValue());
 		
 	}
+	
+	@Test
+	public void testUpdate() {
+		Person p1=new Person();
+		p1.setId(5l);
+		pc.updatePerson(p1, 6l);
+		assertEquals(6l, p1.getId().longValue());
+		System.out.println(p1.getId());
+		
+	}
+	@Test
+	public void testDelete() {
+		Person p2=new Person();
+		p2.setId(7l);
+		pc.deletePerson(7l);
+
+	}
 
 }
