@@ -12,9 +12,8 @@ import com.everis.beans.Person;
 
 public interface PersonRepository extends JpaRepository<Person, Long>{
 
-@Query(value="select * from Person p where p.firstName like :keyword% or p.lastName like :keyword%", nativeQuery=true)	
+@Query(value="SELECT p FROM Person p WHERE p.firstName LIKE :keyword%  or p.lastName LIKE :keyword%")	
 List<Person> findUsersByKeyword(@Param("keyword") String keyword);
 
 	
-
 }
