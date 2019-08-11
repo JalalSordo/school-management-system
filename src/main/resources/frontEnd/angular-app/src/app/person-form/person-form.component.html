@@ -1,0 +1,42 @@
+<div class="card my-5">
+    <div class="card-body">
+      <form (ngSubmit)="onSubmit()" #personForm="ngForm">
+        <div class="form-group">
+          <label for="firstname">First Name</label>
+          <input type="text" [(ngModel)]="person.firstName" 
+            class="form-control" id="firstname" name="name" placeholder="Enter your first name"
+            required #name="ngModel">
+        </div>
+        <div [hidden]="!firstname.pristine" class="alert alert-danger">First Name is required</div>
+        <div class="form-group">
+            <label for="lastname">Last Name</label>
+            <input type="text" [(ngModel)]="person.lastName" 
+              class="form-control" id="lastname" name="name" placeholder="Enter your last name"
+              required #name="ngModel">
+          </div>
+          <div [hidden]="!lastname.pristine" class="alert alert-danger">Last Name is required</div>
+        <div class="form-group">
+          <label for="date">dateOfBirth</label>
+          <input type="date" [(ngModel)]="person.dateOfBirth" 
+            class="form-control" id="date" name="date" placeholder="Enter your date"
+            required #email="ngModel">
+          <div [hidden]="!date.pristine" class="alert alert-danger">date is required</div>
+        </div>
+        <div class="form-group">
+            <label for="city">city</label>
+            <input type="text" [(ngModel)]="person.city" 
+              class="form-control" id="city" name="name" placeholder="Enter your city"
+              required #name="ngModel">
+          </div>
+          <div [hidden]="!city.pristine" class="alert alert-danger">city is required</div>
+          <div class="form-group">
+            <label for="city">country</label>
+            <input type="text" [(ngModel)]="person.country" 
+              class="form-control" id="country" name="name" placeholder="Enter your country"
+              required #name="ngModel">
+          </div>
+          <div [hidden]="!country.pristine" class="alert alert-danger">country is required</div>
+        <button type="submit" [disabled]="!personForm.form.valid" class="btn btn-info">Submit</button>
+      </form>
+    </div>
+  </div>
