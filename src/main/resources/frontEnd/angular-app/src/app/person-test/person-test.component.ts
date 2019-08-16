@@ -11,6 +11,7 @@ import { Location } from '@angular/common';
 })
 export class PersonTestComponent implements OnInit  {
 @Input() person: Person;
+isClicked = false;
 
   constructor(private route: ActivatedRoute, private router: Router, private personService: PersonService,private location: Location) {
     
@@ -27,10 +28,6 @@ export class PersonTestComponent implements OnInit  {
       console.log('ok');
   }
   
-  Onsave(): void {
-    this.personService.update(this.person)
-      .subscribe(() => this.goBack());
-  }
   
   goBack(): void {
     this.location.back();
@@ -44,6 +41,11 @@ export class PersonTestComponent implements OnInit  {
   }
   save(): void {
     this.personService.updatePerson(this.person)
-      .subscribe();
+      .subscribe(result => this.gotoPersonList());
   }
+  EditButton(): void{
+  	this.isClicked = true;
+  }
+  
 }
+

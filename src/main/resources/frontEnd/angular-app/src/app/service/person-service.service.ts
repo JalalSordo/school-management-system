@@ -20,9 +20,6 @@ export class PersonService {
     return this.http.post<Person>(this.personsUrl, person);
   }
   
-  public update(person : Person): Observable<any>{
-  	return this.http.put(this.personsUrl, person);
-  }
   
   getPerson(id: number): Observable<Person> {
     const url = `${this.personsUrl}/${id}`;
@@ -36,7 +33,9 @@ export class PersonService {
     
   }
   updatePerson (person: Person): Observable<any> {
-    return this.http.put(this.personsUrl, person);
+    const id = typeof person === 'number' ? person : person.id;
+  	const url = `${this.personsUrl}/${id}`;
+    return this.http.put(url, person);
   }
  
 }

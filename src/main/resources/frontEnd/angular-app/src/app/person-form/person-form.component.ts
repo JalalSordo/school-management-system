@@ -15,7 +15,7 @@ export class PersonFormComponent {
   constructor(private route: ActivatedRoute, private router: Router, private personService: PersonService) {
     this.person = new Person();
   }
- 
+  
   onSubmit() {
     this.personService.save(this.person).subscribe(result => this.gotoPersonList());
   }
