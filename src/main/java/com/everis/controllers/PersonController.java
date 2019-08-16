@@ -2,6 +2,7 @@ package com.everis.controllers;
 
 import java.util.Date;
 import java.util.List;
+import java.util.Optional;
 import java.util.concurrent.atomic.AtomicLong;
 
 //import org.slf4j.Logger;
@@ -80,7 +81,9 @@ Person updatePerson(@RequestBody Person newPerson, @PathVariable Long id) {
 
 @DeleteMapping("/persons/{id}")
 void deletePerson(@PathVariable Long id) {
-	personService.getPersonById(id);
+	
+	
+	personService.deletePersonById(id);
 }
 
 }

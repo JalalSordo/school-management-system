@@ -30,11 +30,7 @@ public class PersonServiceImpl implements PersonService {
 		return repository.save(p);
 	}
 
-	@Override
-	public void deletePerson(Person p) {
-		repository.delete(p);
-
-	}
+	
 
 	@Override
 	public Optional<Person> getPersonById(Long id) {
@@ -44,6 +40,17 @@ public class PersonServiceImpl implements PersonService {
 	@Override
 	public List<Person> getAllPersons() {
 		return repository.findAll();
+	}
+
+	@Override
+	public void deletePersonById(Long id) throws PersonNotFoundException {
+		//Person loadedPerson = getPersonById(id);
+		//if (loadedPerson != null) {
+			repository.deleteById(id);
+		//} else {
+		//	throw new PersonNotFoundException(i);
+		//}
+		
 	}
 
 }

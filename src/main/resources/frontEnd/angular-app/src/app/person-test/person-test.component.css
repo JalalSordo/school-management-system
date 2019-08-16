@@ -1,0 +1,6 @@
+.persontable tr td:nth-child(2) {
+  width: 150px;
+}
+.persontable tr:nth-child(1) td {
+  border-top: none;
+}

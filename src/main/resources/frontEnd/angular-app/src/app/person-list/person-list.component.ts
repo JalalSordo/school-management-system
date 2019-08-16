@@ -19,4 +19,7 @@ export class PersonListComponent implements OnInit {
       this.persons = data;
     });
   }
+ 
+  
+  
 }

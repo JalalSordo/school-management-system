@@ -50,9 +50,8 @@ public class PersonControllerTest {
 	}
 	@Test
 	public void testDelete() {
-		Person p2=new Person();
-		p2.setId(7l);
-		pc.deletePerson(7l);
+		
+		pc.deletePerson(2l);
 
 	}
 

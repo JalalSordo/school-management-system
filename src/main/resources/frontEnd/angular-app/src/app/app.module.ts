@@ -7,13 +7,16 @@ import { PersonListComponent } from './person-list/person-list.component';
 import { HttpClientModule } from '@angular/common/http';
 import { PersonService } from './service/person-service.service';
 import { PersonFormComponent } from './person-form/person-form.component';
+import { PersonTestComponent } from './person-test/person-test.component';
+
 
 
 @NgModule({
   declarations: [
     AppComponent,
     PersonListComponent,
-    PersonFormComponent
+    PersonFormComponent,
+    PersonTestComponent
   ],
   imports: [
     BrowserModule,
