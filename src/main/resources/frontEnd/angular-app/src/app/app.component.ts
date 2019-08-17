@@ -9,6 +9,6 @@ export class AppComponent {
    title: string;
  
   constructor() {
-    this.title = 'School Management Application';
+    this.title = 'School-Management-Application';
   }
 }
