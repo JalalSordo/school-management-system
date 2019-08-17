@@ -1,6 +1,7 @@
 package com.everis.repository;
 
 
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.List;
 
@@ -18,7 +19,7 @@ import static org.junit.Assert.assertEquals;
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringBootTest
 public class PersonRepositoryTest {
-	Date date = new Date(System.currentTimeMillis());
+	
 	@Autowired
 	private PersonRepository personRepository;
 //	@Test
@@ -28,8 +29,8 @@ public class PersonRepositoryTest {
 //		}
 	@Test
 	public void retrievetest(){
-		personRepository.save(new Person("simo", "assila",date,"rabat","maroc"));
-		personRepository.save(new Person("simo", "cc",date,"rabat","maroc"));
+		personRepository.save(new Person("simo", "assila",LocalDate.now(),"rabat","maroc"));
+		personRepository.save(new Person("simo", "cc",LocalDate.now(),"rabat","maroc"));
 		List<Person> p=personRepository.findUsersByKeyword("assi");
 		String first=p.get(1).getFirstName();
 		System.out.println(first);

@@ -1,5 +1,6 @@
 package com.everis.beans;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 import javax.persistence.Entity;
@@ -23,11 +24,11 @@ public class Person{
 	Long id;
 	String firstName;
 	String lastName;
-	Date dateOfBirth;
+	LocalDate dateOfBirth;
 	String city;
 	String country;
 	public Person() {}
-	public Person(String firstName, String lastName, Date dateOfBirth, String city, String country) {
+	public Person(String firstName, String lastName, LocalDate dateOfBirth, String city, String country) {
 		super();
 		this.firstName = firstName;
 		this.lastName = lastName;

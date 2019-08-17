@@ -2,6 +2,7 @@ package com.everis.beans;
 
 import lombok.extern.slf4j.Slf4j;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 import org.springframework.boot.CommandLineRunner;
@@ -16,10 +17,10 @@ class LoadDatabase {
 
   @Bean
   CommandLineRunner initDatabase(PersonRepository repository) {
-	  Date date = new Date(System.currentTimeMillis());
+	  
     return args -> {
-      log.info("Preloading " + repository.save(new Person("simo", "assila",date,"rabat","maroc")));
-      log.info("Preloading " + repository.save(new Person("anace", "faik",date,"tanger","maroc")));
+      log.info("Preloading " + repository.save(new Person("simo", "assila",LocalDate.now(),"rabat","maroc")));
+      log.info("Preloading " + repository.save(new Person("anace", "faik",LocalDate.now(),"tanger","maroc")));
       
     };
   }
