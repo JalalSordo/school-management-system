@@ -12,17 +12,15 @@ import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
 import com.everis.beans.Person;
-import com.everis.repository.PersonRepository;
-import com.everis.service.PersonService;
-import com.everis.service.PersonServiceImpl;
+
 
 public class PersonControllerTest {
 
-	@InjectMocks
-	private PersonController pc;
+	//@InjectMocks
+	//private PersonController pc;
 	
-	@Mock
-	private PersonServiceImpl personService;
+	//@Mock
+	//private PersonServiceImpl personService;
 	
 	
 	@Before
@@ -34,7 +32,7 @@ public class PersonControllerTest {
 		System.out.println("ok");
 		Person per=new Person();
 		per.setId(4l);
-		when(personService.getPersonById(4l)).thenReturn(Optional.of(per));
+		//when(personService.getPersonById(4l)).thenReturn(Optional.of(per));
 		assertEquals(4l, per.getId().longValue());
 		
 	}
@@ -43,7 +41,7 @@ public class PersonControllerTest {
 	public void testUpdate() {
 		Person p1=new Person();
 		p1.setId(5l);
-		pc.updatePerson(p1, 6l);
+		//pc.updatePerson(p1, 6l);
 		assertEquals(6l, p1.getId().longValue());
 		System.out.println(p1.getId());
 		
@@ -51,7 +49,7 @@ public class PersonControllerTest {
 	@Test
 	public void testDelete() {
 		
-		pc.deletePerson(2l);
+		//pc.deletePerson(2l);
 
 	}
 
