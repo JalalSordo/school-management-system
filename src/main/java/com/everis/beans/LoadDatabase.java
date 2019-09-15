@@ -13,7 +13,7 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-
+import com.everis.repository.CourseRepository;
 import com.everis.repository.TeacherRepository;
 
 @Configuration
@@ -21,7 +21,7 @@ import com.everis.repository.TeacherRepository;
 class LoadDatabase {
 
   @Bean
-  CommandLineRunner initDatabase(TeacherRepository repository) {
+  CommandLineRunner initDatabase(TeacherRepository repository, CourseRepository rep) {
 	  Course c1=new Course();
 	  
 	  Teacher t1=new Teacher();
@@ -34,6 +34,12 @@ class LoadDatabase {
 	  //a.add(c1);
 	//  a.add(c2);
 	 // t1.setCourses(a);
+	  t1.setFirstName("Hassan");
+	  t1.setLastName("Zahar");
+	  t1.setDateOfBirth(LocalDate.now());
+	  t1.setCity("Rabat");
+	  t1.setCountry("Maroc");
+
 	
 	
 

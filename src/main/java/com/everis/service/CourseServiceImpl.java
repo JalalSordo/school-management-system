@@ -72,4 +72,35 @@ public class CourseServiceImpl implements CourseService {
 
     }
 
+	@Override
+	public Set<Course> findCoursesOfTeacher(Long teacherId) {
+		Optional<Teacher> byId = teacherRep.findById(teacherId);
+		Set<Course> courses = new HashSet<>();
+		if (!byId.isPresent()) {
+            throw new PersonNotFoundException(teacherId);
+        }
+        Teacher teacher = byId.get();
+        List<Course> list=this.getAllCourses();
+        for (Course course : list) {
+			if(course.getCourseTeacher().getId()==teacherId) {
+				courses.add(course);
+			}
+		}
+		return courses;
+	}
+
+	@Override
+	public Set<Course> meth(Teacher teacher) {
+		Long teacherId=teacher.getId();
+		Set<Course> courses = new HashSet<>();
+		
+        List<Course> list=this.getAllCourses();
+        for (Course course : list) {
+			if(course.getCourseTeacher().getId()==teacherId) {
+				courses.add(course);
+			}
+		}
+		return courses;
+	}
+
 }
