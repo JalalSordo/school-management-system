@@ -2,6 +2,7 @@ package com.everis.beans;
 
 
 import java.io.Serializable;
+import java.util.Set;
 
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -9,7 +10,9 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
@@ -29,6 +32,12 @@ public class Course implements Serializable{
 	@JoinColumn(name = "teacher_id")
 	private Teacher courseTeacher;
 	public Course() {}
+	
+	 @ManyToMany(mappedBy = "TakenCourses")
+	 Set<Student> students;
+	 
+	 @OneToMany(mappedBy = "course")
+	 Set<CourseRegistration> registrations;
 	
 	public Long getTeacher_id(){
         return courseTeacher.getId();
