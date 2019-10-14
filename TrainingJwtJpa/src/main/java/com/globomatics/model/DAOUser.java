@@ -2,12 +2,19 @@ package com.globomatics.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+import lombok.Getter;
+import lombok.Setter;
+
+import java.io.Serializable;
+import java.util.Collection;
+
 import javax.persistence.*;
 
 @Entity
+@Getter
+@Setter
 @Table(name = "user")
-public class DAOUser {
-
+public class DAOUser implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
@@ -16,21 +23,24 @@ public class DAOUser {
 	@Column
 	@JsonIgnore
 	private String password;
-
-	public String getUsername() {
-		return username;
-	}
-
-	public void setUsername(String username) {
+	
+	@Column
+	private String role;
+	
+	
+	public DAOUser(String username, String password, boolean actived) {
+		super();
 		this.username = username;
-	}
-
-	public String getPassword() {
-		return password;
-	}
-
-	public void setPassword(String password) {
 		this.password = password;
+		this.actived = actived;
 	}
 
+	private boolean actived;
+	
+	
+	public DAOUser() {
+		super();
+	}
+
+	
 }
