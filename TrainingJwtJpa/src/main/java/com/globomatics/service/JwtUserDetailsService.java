@@ -1,4 +1,4 @@
-package com.globomatics.service;
+ package com.globomatics.service;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -13,6 +13,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.globomatics.model.DAOUser;
+import com.globomatics.model.Role;
 import com.globomatics.model.UserDTO;
 import com.globomatics.repository.UserDao;
 
@@ -50,13 +51,21 @@ public class JwtUserDetailsService implements UserDetailsService {
 		// TODO Auto-generated method stub
 		
 		Collection<GrantedAuthority> authorities = new ArrayList<>();
-		
-		String userRole = user.getRole();
-		if(userRole != null)
-		{
-		SimpleGrantedAuthority authority = new SimpleGrantedAuthority(userRole);
-		authorities.add(authority);
+		Collection<Role> roles = new ArrayList<>();
+		roles=user.getRoles();
+		for (Role role : roles) {
+			
+			if(role != null)
+			{
+			SimpleGrantedAuthority authority = new SimpleGrantedAuthority(role.getRole());
+			authorities.add(authority);
+			}
+			
+			
 		}
+		
+		//String userRole = user.getRole();
+		
 		return authorities;
 	
 	}

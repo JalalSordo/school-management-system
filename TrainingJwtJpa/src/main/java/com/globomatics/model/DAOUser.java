@@ -25,8 +25,10 @@ public class DAOUser implements Serializable {
 	private String password;
 	
 	@Column
-	private String role;
+	private String usertype;
 	
+	@ManyToMany(fetch=FetchType.EAGER)
+	Collection<Role> roles;
 	
 	public DAOUser(String username, String password, boolean actived) {
 		super();
@@ -39,7 +41,7 @@ public class DAOUser implements Serializable {
 	
 	
 	public DAOUser() {
-		super();
+		
 	}
 
 	

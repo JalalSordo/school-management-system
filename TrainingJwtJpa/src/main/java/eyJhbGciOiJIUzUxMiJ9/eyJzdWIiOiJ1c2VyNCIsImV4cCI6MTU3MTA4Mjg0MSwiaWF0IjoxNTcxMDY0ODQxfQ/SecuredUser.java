@@ -15,7 +15,7 @@ public class SecuredUser extends DAOUser implements UserDetails {
 
 		this.setUsername(user.getUsername());
 		this.setPassword(user.getPassword());
-		this.setRole(user.getRole());
+		this.setRoles(user.getRoles());
 		}
 	
 	
@@ -25,7 +25,7 @@ public class SecuredUser extends DAOUser implements UserDetails {
 		
 		Collection<GrantedAuthority> authorities = new ArrayList<>();
 		
-		String userRole = super.getRole();
+		String userRole = super.getUsertype();
 		if(userRole != null)
 		{
 		SimpleGrantedAuthority authority = new SimpleGrantedAuthority(userRole);
