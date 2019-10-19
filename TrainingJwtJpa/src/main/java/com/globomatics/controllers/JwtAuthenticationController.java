@@ -48,6 +48,16 @@ public class JwtAuthenticationController {
 	public ResponseEntity<?> saveUser(@RequestBody UserDTO user) throws Exception {
 		return ResponseEntity.ok(userDetailsService.save(user));
 	}
+	
+	@RequestMapping(value = "/student-signup", method = RequestMethod.POST)
+	public ResponseEntity<?> saveUserAsStudent(@RequestBody UserDTO user) throws Exception {
+		return ResponseEntity.ok(userDetailsService.saveAsStudent(user));
+	}
+	
+	@RequestMapping(value = "/teacher-signup", method = RequestMethod.POST)
+	public ResponseEntity<?> saveUserAsTeacher(@RequestBody UserDTO user) throws Exception {
+		return ResponseEntity.ok(userDetailsService.saveAsTeacher(user));
+	}
 
 	private void authenticate(String username, String password) throws Exception {
 		try {

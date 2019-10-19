@@ -47,6 +47,33 @@ public class JwtUserDetailsService implements UserDetailsService {
 		return userDao.save(newUser);
 	}
 	
+	public DAOUser saveAsStudent(UserDTO user) {
+		DAOUser newUser = new DAOUser();
+		newUser.setUsername(user.getUsername());
+		newUser.setPassword(bcryptEncoder.encode(user.getPassword()));
+		Role r=new Role();
+		r.setRole("ROLE_STUDENT");
+		Collection<Role> roles =new ArrayList<Role>();
+		roles.add(r);
+		newUser.setRoles(roles);
+		return userDao.save(newUser);
+	}
+	
+	public DAOUser saveAsTeacher(UserDTO user) {
+		DAOUser newUser = new DAOUser();
+		newUser.setUsername(user.getUsername());
+		newUser.setPassword(bcryptEncoder.encode(user.getPassword()));
+		Role r=new Role();
+		r.setRole("ROLE_STUDENT");
+		Role r1=new Role();
+		r1.setRole("ROLE_TEACHER");
+		Collection<Role> roles =new ArrayList<Role>();
+		roles.add(r);
+		newUser.setRoles(roles);
+		newUser.getRoles().add(r1);
+		return userDao.save(newUser);
+	}
+	
 	public Collection<? extends GrantedAuthority> getAuthorities(DAOUser user) {
 		// TODO Auto-generated method stub
 		
